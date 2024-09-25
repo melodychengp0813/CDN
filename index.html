@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <!-- 應用程式生成位置 -->
+    <div id="app">
+        {{ num }}
+        <button type="button" @click="clickMe">click me!!</button>
+    </div>
+
+
+    <script>
+        console.log(Vue);
+        //const {createApp,ref} = Vue; 
+
+       // const app = createApp({ 
+                //composition
+        //          setup() {
+        //              const num = ref(2);
+         //           setInterval(() => {
+        //             num++
+              //      },500)
+                //    return{
+                  //      num.value++
+                  //  }
+                 //}
+            
+        //});
+       // app.mount = ('#app');
+
+        const { createApp, ref } = Vue //解構，取出特定方法
+
+        createApp({  //建立根元件
+        setup() {
+           const num = ref(2);
+           function clickMe(){
+            num.value++
+           }
+            //console.log(num.value);
+            //setInterval(() =>{
+              //  num.value++
+            //},1000);
+
+            return {
+              num,clickMe 
+            }
+         }
+        }).mount('#app')
+
+
+        
+    </script>
+</body>
+</html>
